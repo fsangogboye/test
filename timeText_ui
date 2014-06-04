@@ -4,7 +4,7 @@ TIME=timeTEXT
 HOST=localhost
 PORT=1234
 
-GETTEXT="gettext -d timeTEXT_ui"
+GETTEXT="gettext -d timeText_ui"
 
 which gdialog 2> /dev/null && DIALOG=gdialog || DIALOG=dialog
 
@@ -14,5 +14,6 @@ which gdialog 2> /dev/null && DIALOG=gdialog || DIALOG=dialog
        	now1=$(export TZ=`cat /tmp/input.$$`;date)
 	na=`cat /tmp/input.$$`
 
-	MSG="`$GETTEXT \"Hello $na, your time now is:\"` \n\n$now1\\n\\n"
+	MSG="`$GETTEXT \"Your time is:\"` $now1" 
+	#MSG1="`$GETTEXT \"Hello $na, your time now is:\"` \n\n$now1\\n\\n"
 		$DIALOG --yesno "$MSG" 7 20 || end
