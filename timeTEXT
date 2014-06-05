@@ -1,15 +1,7 @@
 #!/bin/sh
 
-
-
-which gdialog 2> /dev/null && DIALOG=gdialog || DIALOG=dialog
-
-$DIALOG --inputbox "Enter Continent/City:" 8 35 2>/tmp/input.$$
-
-now1=$(export TZ=`cat /tmp/input.$$`;date)
-na=`cat /tmp/input.$$`
-
-MSG="Hello $na, your time now is:  $now1"
-
-$DIALOG --yesno "$MSG" 7 20 || end
-	
+export LANG=en.US.UTF-8
+read continent_city
+set $continent_city
+export TZ="$1"/"$2"
+date
