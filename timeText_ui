@@ -13,11 +13,7 @@ ERROR=/tmp/main-err
 
 
 MAIN="nc $HOST $PORT"
-#!/bin/sh
-
-which gdialog 2> /dev/null && DIALOG=gdialog || DIALOG=dialog
-
-$DIALOG --inputbox "Enter Continent/City:" 8 35 2> $FILE1 || end
+zenity --entry --entry-text="type" --text "Enter Continent(Space)City" > $FILE1 || end
 
 ###
 if cat $FILE1 | $MAIN > $FILE2 2>$ERROR
